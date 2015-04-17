@@ -12,7 +12,6 @@ import (
 	"testing"
 
 	"github.com/llgcode/draw2d/draw2d"
-	"github.com/llgcode/draw2d/postscript"
 )
 
 func saveToPngFile(filePath string, m image.Image) {
@@ -53,7 +52,7 @@ func TestTiger(t *testing.T) {
 	defer src.Close()
 	bytes, err := ioutil.ReadAll(src)
 	reader := strings.NewReader(string(bytes))
-	interpreter := postscript.NewInterpreter(gc)
+	interpreter := NewInterpreter(gc)
 	interpreter.Execute(reader)
 	saveToPngFile("result/TestPostscript.png", i)
 }
