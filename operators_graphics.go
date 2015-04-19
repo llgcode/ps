@@ -1,7 +1,7 @@
 // Copyright 2010 The postscript-go Authors. All rights reserved.
 // created: 13/12/2010 by Laurent Le Goff
 
-// Graphics operators
+// Package ps
 package ps
 
 import (
@@ -9,7 +9,7 @@ import (
 	"log"
 	"math"
 
-	"github.com/llgcode/draw2d/draw2d"
+	"github.com/llgcode/draw2d"
 )
 
 //Path Construction Operators

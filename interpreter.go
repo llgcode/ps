@@ -9,7 +9,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/llgcode/draw2d/draw2d"
+	"github.com/llgcode/draw2d"
 )
 
 type Interpreter struct {
