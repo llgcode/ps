@@ -36,7 +36,8 @@ func moveto(interpreter *Interpreter) {
 func rmoveto(interpreter *Interpreter) {
 	y := interpreter.PopFloat()
 	x := interpreter.PopFloat()
-	interpreter.GetGraphicContext().RMoveTo(x, y)
+	sx, sy := interpreter.GetGraphicContext().LastPoint()
+	interpreter.GetGraphicContext().MoveTo(sx+x, sy+y)
 }
 
 func lineto(interpreter *Interpreter) {
@@ -48,7 +49,8 @@ func lineto(interpreter *Interpreter) {
 func rlineto(interpreter *Interpreter) {
 	y := interpreter.PopFloat()
 	x := interpreter.PopFloat()
-	interpreter.GetGraphicContext().RLineTo(x, y)
+	sx, sy := interpreter.GetGraphicContext().LastPoint()
+	interpreter.GetGraphicContext().LineTo(sx+x, sy+y)
 }
 
 func curveto(interpreter *Interpreter) {
@@ -68,7 +70,8 @@ func rcurveto(interpreter *Interpreter) {
 	cx2 := interpreter.PopFloat()
 	cy1 := interpreter.PopFloat()
 	cx1 := interpreter.PopFloat()
-	interpreter.GetGraphicContext().RCubicCurveTo(cx1, cy1, cx2, cy2, cx3, cy3)
+	sx, sy := interpreter.GetGraphicContext().LastPoint()
+	interpreter.GetGraphicContext().CubicCurveTo(sx+cx1, sy+cy1, sx+cx2, sy+cy2, sx+cx3, sy+cy3)
 }
 
 func arc(interpreter *Interpreter) {
