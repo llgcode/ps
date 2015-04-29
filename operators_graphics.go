@@ -346,7 +346,8 @@ func transform(interpreter *Interpreter) {
 		y = interpreter.PopFloat()
 	}
 	x := interpreter.PopFloat()
-	matrix.Transform(&x, &y)
+
+	x, y = matrix.TransformPoint(x, y)
 	interpreter.Push(x)
 	interpreter.Push(y)
 }
@@ -362,7 +363,7 @@ func itransform(interpreter *Interpreter) {
 		y = interpreter.PopFloat()
 	}
 	x := interpreter.PopFloat()
-	matrix.InverseTransform(&x, &y)
+	x, y = matrix.InverseTransformPoint(x, y)
 	interpreter.Push(x)
 	interpreter.Push(y)
 }
