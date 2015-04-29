@@ -11,7 +11,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/llgcode/draw2d"
+	"github.com/llgcode/draw2d/draw2dimg"
 )
 
 func saveToPngFile(filePath string, m image.Image) {
@@ -41,7 +41,7 @@ func init() {
 
 func TestTiger(t *testing.T) {
 	i := image.NewRGBA(image.Rect(0, 0, 600, 800))
-	gc := draw2d.NewGraphicContext(i)
+	gc := draw2dimg.NewGraphicContext(i)
 	gc.Translate(0, 380)
 	gc.Scale(1, -1)
 	gc.Translate(0, -380)
